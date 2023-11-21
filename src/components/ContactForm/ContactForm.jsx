@@ -1,60 +1,45 @@
-import { Component } from 'react';
-import { Form, Label, Input, SubmitBtn } from './ContactForm.styled';
+import { Formik } from 'formik';
+import {
+  Form,
+  Label,
+  Input,
+  ErrorMsg1,
+  ErrorMsg2,
+  SubmitBtn,
+} from './ContactForm.styled';
+import * as Yup from 'yup';
 
-export class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  };
+const ContactFormSchema = Yup.object().shape({
+  name: Yup.string()
+    .min(3, 'Name too short!')
+    .max(16, 'Name too long!')
+    .required('Required'),
+  number: Yup.string()
+    .optional()
+    .min(10, 'Number too short!')
+    .max(13, 'Number too long!')
+    .required('Required'),
+});
 
-  handleOnChange = e => {
-    const { name, value } = e.currentTarget;
-
-    this.setState({
-      [name]: value,
-    });
-  };
-
-  handleOnSubmit = e => {
-    e.preventDefault();
-
-    this.props.onSubmit(this.state);
-
-    this.resetForm();
-  };
-
-  resetForm = () => {
-    this.setState({
-      name: '',
-      number: '',
-    });
-  };
-
-  render() {
-    const { name, number } = this.state;
-
-    return (
-      <Form onSubmit={this.handleOnSubmit} autoComplete="off">
+export const ContactForm = props => {
+  return (
+    <Formik
+      initialValues={{ name: '', number: '' }}
+      validationSchema={ContactFormSchema}
+      onSubmit={(values, actions) => {
+        props.onSubmit(values);
+        actions.resetForm();
+      }}
+    >
+      <Form autoComplete="off">
         <Label htmlFor="nameId">Name</Label>
-        <Input
-          id="nameId"
-          type="text"
-          name="name"
-          value={name}
-          onChange={this.handleOnChange}
-          required
-        />
+        <Input id="nameId" type="text" name="name" />
+        <ErrorMsg1 name="name" component="span" />
         <Label htmlFor="numberId">Number</Label>
-        <Input
-          id="numberId"
-          type="tel"
-          name="number"
-          value={number}
-          onChange={this.handleOnChange}
-          required
-        />
+        <Input id="numberId" type="tel" name="number" />
+        <ErrorMsg2 name="number" component="span" />
         <SubmitBtn type="submit">Add contact</SubmitBtn>
       </Form>
-    );
-  }
-}
+    </Formik>
+  );
+};

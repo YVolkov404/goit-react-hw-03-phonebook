@@ -10,6 +10,7 @@ export const Filter = ({ filter, onChangeFilter }) => {
         name="name"
         value={filter}
         onChange={e => onChangeFilter(e.target.value)}
+        autoComplete="off"
       />
     </Search>
   );

@@ -1,6 +1,8 @@
+import { Form as TagForm, Field, ErrorMessage } from 'formik';
 import styled from 'styled-components';
 
-export const Form = styled.form`
+export const Form = styled(TagForm)`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -13,7 +15,7 @@ export const Label = styled.label`
   color: aqua;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   width: auto;
   height: 32px;
   font-size: 18px;
@@ -25,6 +27,30 @@ export const Input = styled.input`
     color: darkcyan;
     font-weight: 500;
   }
+`;
+
+export const ErrorMsg1 = styled(ErrorMessage)`
+  position: absolute;
+  right: 0;
+  top: 10px;
+  font-size: 14px;
+  color: blanchedalmond;
+  text-align: right;
+  text-decoration-line: underline;
+  text-underline-offset: 7px;
+  text-decoration-color: aqua;
+`;
+
+export const ErrorMsg2 = styled(ErrorMessage)`
+  position: absolute;
+  right: 0;
+  top: 97px;
+  font-size: 14px;
+  color: blanchedalmond;
+  text-align: right;
+  text-decoration-line: underline;
+  text-underline-offset: 7px;
+  text-decoration-color: aqua;
 `;
 
 export const SubmitBtn = styled.button`
