@@ -12,10 +12,9 @@ import * as Yup from 'yup';
 const ContactFormSchema = Yup.object().shape({
   name: Yup.string()
     .min(3, 'Name too short!')
-    .max(16, 'Name too long!')
+    .max(17, 'Name too long!')
     .required('Required'),
   number: Yup.string()
-    .optional()
     .min(10, 'Number too short!')
     .max(13, 'Number too long!')
     .required('Required'),

@@ -6,11 +6,31 @@ import { Filter } from './Filter/Filter';
 
 import { Container, Title, SubTitle } from './App.styled';
 
+const localStorageKey = 'contact-list';
+
 export class App extends Component {
   state = {
     contacts: [],
     filter: '',
   };
+
+  componentDidMount() {
+    const savedContacts = localStorage.getItem(localStorageKey);
+
+    if (savedContacts !== null) {
+      this.setState({
+        contacts: JSON.parse(savedContacts),
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    const { contacts } = this.state;
+
+    if (prevState.contacts !== contacts) {
+      localStorage.setItem(localStorageKey, JSON.stringify(contacts));
+    }
+  }
 
   formSubmitHandler = data => {
     const hasContactName = this.state.contacts.some(

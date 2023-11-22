@@ -5,7 +5,6 @@ export const Item = styled.li`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  justify-content: space-between;
   align-content: center;
   align-items: center;
   margin-bottom: 12px;
@@ -18,6 +17,7 @@ export const Item = styled.li`
 export const Name = styled.span`
   font-size: 19px;
   color: ${p => p.theme.contactName};
+  flex-grow: 2;
 `;
 
 export const Number = styled.span`
@@ -27,6 +27,7 @@ export const Number = styled.span`
   text-decoration-style: dotted;
   text-decoration-thickness: 2px;
   text-underline-offset: 5px;
+  margin-right: 10px;
 `;
 
 export const DeleteBtn = styled.button`
