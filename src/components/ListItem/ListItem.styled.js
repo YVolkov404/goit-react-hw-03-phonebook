@@ -16,13 +16,13 @@ export const Item = styled.li`
 
 export const Name = styled.span`
   font-size: 19px;
-  color: ${p => p.theme.contactName};
+  color: ${p => p.theme.second};
   flex-grow: 2;
 `;
 
 export const Number = styled.span`
   font-size: 17px;
-  color: ${p => p.theme.contactNumber};
+  color: ${p => p.theme.third};
   text-decoration-line: underline;
   text-decoration-style: dotted;
   text-decoration-thickness: 2px;
@@ -39,14 +39,14 @@ export const DeleteBtn = styled.button`
 `;
 
 export const Icon = styled(RiDeleteBin7Fill)`
-  color: ${p => p.theme.deleteContactBtn};
+  color: ${p => p.theme.third};
   vertical-align: baseline;
   transition: filter 250ms cubic-bezier(0.4, 0, 0.2, 1),
     color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   &:hover,
   &:focus {
-    color: ${p => p.theme.deleteContactBtnHoverAndFocus};
+    color: ${p => p.theme.second};
     filter: drop-shadow(1px -1px 1px rgba(255, 235, 205, 0.64));
   }
 `;

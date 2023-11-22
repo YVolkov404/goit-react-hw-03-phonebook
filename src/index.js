@@ -4,21 +4,18 @@ import { App } from './components/App';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 
+/** Theme : color guide
+  ---> main color : background;
+  ---> second color { title, border, btnBackground, searchLabelUnderline, errorMsg, contactName, deleteContactBtnHoverAndFocus }
+  ---> third color { label, searchBorder, errorMsgUnderline, contactNumber, deleteContactBtn }
+  ---> hover & focus color : hoverAndFocus;
+**/
+
 const theme = {
-  background: 'black',
-  title: 'blanchedalmond',
-  label: 'aqua',
-  border: 'blanchedalmond',
-  hoverAndFocus: 'darkcyan',
-  buttonBackground: 'blanchedalmond',
-  searchBorder: 'aqua',
-  searchLabelUnderline: 'blanchedalmond',
-  errorMsg: 'blanchedalmond',
-  errorMsgUnderline: 'aqua',
-  contactName: 'blanchedalmond',
-  contactNumber: 'aqua',
-  deleteContactBtn: 'aqua',
-  deleteContactBtnHoverAndFocus: 'blanchedalmond',
+  main: 'black',
+  second: 'blanchedalmond',
+  third: 'aqua',
+  hovAndFoc: 'darkcyan',
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(
