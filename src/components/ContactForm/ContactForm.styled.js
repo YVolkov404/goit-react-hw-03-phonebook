@@ -12,7 +12,7 @@ export const Form = styled(TagForm)`
 export const Label = styled.label`
   padding-left: 5px;
   font-size: 22px;
-  color: aqua;
+  color: ${p => p.theme.label};
 `;
 
 export const Input = styled(Field)`
@@ -21,10 +21,10 @@ export const Input = styled(Field)`
   font-size: 18px;
   padding-left: 10px;
   outline: 2px solid blanchedalmond;
-  caret-color: aqua;
+  caret-color: ${p => p.theme.label};
 
   &:focus {
-    color: darkcyan;
+    ${p => p.theme.hoverAndFocus};
     font-weight: 500;
   }
 `;
@@ -34,11 +34,11 @@ export const ErrorMsg1 = styled(ErrorMessage)`
   right: 0;
   top: 10px;
   font-size: 14px;
-  color: blanchedalmond;
+  color: ${p => p.theme.errorMsg};
   text-align: right;
   text-decoration-line: underline;
   text-underline-offset: 7px;
-  text-decoration-color: aqua;
+  text-decoration-color: ${p => p.theme.errorMsgUnderline};
 `;
 
 export const ErrorMsg2 = styled(ErrorMessage)`
@@ -46,11 +46,11 @@ export const ErrorMsg2 = styled(ErrorMessage)`
   right: 0;
   top: 97px;
   font-size: 14px;
-  color: blanchedalmond;
+  color: ${p => p.theme.errorMsg};
   text-align: right;
   text-decoration-line: underline;
   text-underline-offset: 7px;
-  text-decoration-color: aqua;
+  text-decoration-color: ${p => p.theme.errorMsgUnderline};
 `;
 
 export const SubmitBtn = styled.button`
@@ -59,7 +59,7 @@ export const SubmitBtn = styled.button`
   font-weight: 700;
   text-transform: uppercase;
   padding: 8px;
-  background-color: blanchedalmond;
+  background-color: ${p => p.theme.buttonBackground};
   border: none;
   box-shadow: 3px -3px 3px -1px rgba(255, 235, 205, 0.64);
   transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
@@ -68,6 +68,6 @@ export const SubmitBtn = styled.button`
   &:hover,
   &:focus {
     box-shadow: none;
-    color: darkcyan;
+    color: ${p => p.theme.hoverAndFocus};
   }
 `;

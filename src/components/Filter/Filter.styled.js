@@ -13,8 +13,8 @@ export const Label = styled.label`
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 7px;
-  text-decoration-color: blanchedalmond;
-  color: aqua;
+  text-decoration-color: ${p => p.theme.searchLabelUnderline};
+  color: ${p => p.theme.label};
 `;
 
 export const Input = styled.input`
@@ -22,11 +22,11 @@ export const Input = styled.input`
   height: 32px;
   font-size: 18px;
   padding-left: 10px;
-  outline: 2px solid aqua;
-  caret-color: aqua;
+  outline: 2px solid ${p => p.theme.searchBorder};
+  caret-color: ${p => p.theme.label};
 
   &:focus {
-    color: darkcyan;
+    color: ${p => p.theme.hoverAndFocus};
     font-weight: 500;
   }
 `;

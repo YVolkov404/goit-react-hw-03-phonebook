@@ -13,7 +13,6 @@ export class App extends Component {
   };
 
   formSubmitHandler = data => {
-    console.log(data);
     const hasContactName = this.state.contacts.some(
       contact => contact.name.toLowerCase() === data.name.toLowerCase()
     );
